@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    background-color: #e0e0e0;
+  }
+  header {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    border-bottom: 1px solid #ccc;
+  }
+    header img {
+        width: 90px;
+    }
+  nav a {
+    margin: 0 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+  }
+  .quote-button {
+    border: 1px solid black;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+  }
+  .hero {
+    height: 75vh; /* 75% of the viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #d6d6d6;
+    text-align: center;
+    padding: 0 20px;
+  }
+  
+  .hero h2 {
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #444;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: 40px;
+    font-weight: bold;
+    margin: 0;
+    color: black;
+  }
+  .hero p {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+  }

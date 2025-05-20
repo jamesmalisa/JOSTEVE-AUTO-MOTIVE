@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JOSTEVE AUTOMOTIVE</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-gray-200">
+
+  <!-- Header -->
+  <header class="bg-white border-b border-gray-300 px-6 py-4" x-data="{ open: false }">
+    <div class="flex items-center justify-between">
+      <!-- Logo -->
+      <div class="leading-tight">
+        <div class="font-bold text-lg">JOSTEVE</div>
+        <div class="text-red-600 font-bold -mt-1">AUTO</div>
+        <div class="text-gray-500 font-semibold -mt-1">MOTIVE</div>
+      </div>
+  
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex gap-14 text-sm font-medium">
+        <a href="#" class="hover:text-red-600">HOME</a>
+        <a href="#" class="hover:text-red-600">SERVICES</a>
+        <a href="#" class="hover:text-red-600">PRODUCTS</a>
+        <a href="#" class="hover:text-red-600">ABOUT</a>
+      </nav>
+  
+      <!-- Quote Button (always visible on desktop) -->
+      <div class="hidden md:block">
+        <a href="#" class="border border-black px-5 py-2 rounded-md font-semibold text-sm hover:bg-black hover:text-white transition">
+          GET QUOTE →
+        </a>
+      </div>
+  
+      <!-- Hamburger Menu Button (Mobile) -->
+      <button class="md:hidden text-3xl focus:outline-none" @click="open = !open">
+        ☰
+      </button>
+    </div>
+  
+    <!-- Mobile Menu -->
+    <div x-show="open" x-transition class="mt-4 md:hidden">
+      <nav class="flex flex-col gap-4 text-sm font-medium">
+        <a href="#" class="hover:text-red-600">HOME</a>
+        <a href="#" class="hover:text-red-600">SERVICES</a>
+        <a href="#" class="hover:text-red-600">PRODUCTS</a>
+        <a href="#" class="hover:text-red-600">ABOUT</a>
+        <a href="#" class="border border-black px-4 py-2 text-center rounded-md font-semibold text-sm hover:bg-black hover:text-white transition">
+          GET QUOTE →
+        </a>
+      </nav>
+    </div>
+  </header>
+  
+
+  <!-- Hero Section -->
+<section 
+  class="h-[70vh] bg-gray-300 flex flex-col justify-center items-center text-center px-4"
+  x-data="{
+    titles: [
+      'CARE FOR YOUR CAR, CONFIDENCE FOR YOUR JOURNEY.',
+      'SMART AUTO SOLUTIONS. POWERED BY PRECISION.',
+      'PRECISION AUTO CARE. GENUINE PARTS. TRUSTED SERVICE.'
+    ],
+    index: 0,
+    init() {
+      setInterval(() => {
+        this.index = (this.index + 1) % this.titles.length;
+      }, 10000);
+    }
+  }"
+>
+  <h2 class="text-sm tracking-wide text-gray-700 mb-4 uppercase">Welcome to Josteve Auto Motive</h2>
+  
+  <!-- Swapping Headline -->
+  <h1 x-text="titles[index]" class="text-4xl md:text-5xl font-bold leading-tight text-black mb-6 transition-all duration-500 ease-in-out"></h1>
+  
+  <p class="text-base text-gray-800 mb-8">MAMBO IPO HUKU!</p>
+
+  <!-- CTA Buttons -->
+  <div class="flex flex-col sm:flex-row gap-4">
+    <a href="#book" class="bg-red-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-red-700 transition">
+      Book Appointment
+    </a>
+    <a href="#services" class="border border-black text-black px-6 py-3 rounded-md font-semibold hover:bg-black hover:text-white transition">
+      Browse Services
+    </a>
+  </div>
+</section>
+
+</body>
+</html>
