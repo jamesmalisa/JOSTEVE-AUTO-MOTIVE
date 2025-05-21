@@ -6,11 +6,13 @@
   <title>JOSTEVE AUTOMOTIVE</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://unpkg.com/@heroicons/vue@2.0.18/24/outline"></script>
+
 </head>
 <body class="bg-gray-200">
 
   <!-- Header -->
-  <header class="bg-white border-b border-gray-300 px-6 py-4" x-data="{ open: false }">
+  <header class="bg-white border-b border-gray-300 px-6 py-4 fixed top-0 w-full z-50" x-data="{ open: false }">
     <div class="flex items-center justify-between">
       <!-- Logo -->
       <div class="leading-tight">
@@ -22,8 +24,8 @@
       <!-- Desktop Menu -->
       <nav class="hidden md:flex gap-14 text-sm font-medium">
         <a href="#" class="hover:text-red-600">HOME</a>
-        <a href="#" class="hover:text-red-600">SERVICES</a>
-        <a href="#" class="hover:text-red-600">PRODUCTS</a>
+        <a href="#services" class="hover:text-red-600">SERVICES</a>
+        <a href="products.html" class="hover:text-red-600">PRODUCTS</a>
         <a href="#" class="hover:text-red-600">ABOUT</a>
       </nav>
   
@@ -44,7 +46,7 @@
     <div x-show="open" x-transition class="mt-4 md:hidden">
       <nav class="flex flex-col gap-4 text-sm font-medium">
         <a href="#" class="hover:text-red-600">HOME</a>
-        <a href="#" class="hover:text-red-600">SERVICES</a>
+        <a href="#services" class="hover:text-red-600">SERVICES</a>
         <a href="#" class="hover:text-red-600">PRODUCTS</a>
         <a href="#" class="hover:text-red-600">ABOUT</a>
         <a href="#" class="border border-black px-4 py-2 text-center rounded-md font-semibold text-sm hover:bg-black hover:text-white transition">
@@ -57,7 +59,7 @@
 
   <!-- Hero Section -->
 <section 
-  class="h-[70vh] bg-gray-300 flex flex-col justify-center items-center text-center px-4"
+  class="h-[80vh] bg-gray-300 flex flex-col justify-center items-center text-center px-4 mt-16"
   x-data="{
     titles: [
       'CARE FOR YOUR CAR, CONFIDENCE FOR YOUR JOURNEY.',
@@ -71,7 +73,7 @@
       }, 10000);
     }
   }"
->
+  >
   <h2 class="text-sm tracking-wide text-gray-700 mb-4 uppercase">Welcome to Josteve Auto Motive</h2>
   
   <!-- Swapping Headline -->
@@ -90,5 +92,293 @@
   </div>
 </section>
 
+<!-- ===================== OUR SERVICES SECTION ===================== -->
+<section id="services" class="py-20 bg-white text-center px-6">
+  <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4 uppercase">Our Services</h2>
+  <p class="text-gray-600 mb-12 max-w-xl mx-auto">
+    At JOSTEVE AUTOMOTIVE, we offer expert automotive care with genuine parts and precision service. Here’s what we do best.
+  </p>
+
+  <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+    <!-- Service Card 1 -->
+    <div class="bg-gray-100 rounded-lg p-6 shadow hover:shadow-lg transition">
+      <div class="text-4xl mb-4">🛠</div>
+      <h3 class="font-semibold text-lg text-gray-800 mb-2">Genuine Spare Parts</h3>
+      <p class="text-gray-600 text-sm">
+        We supply only original, manufacturer-approved parts to ensure perfect compatibility, reliability, and performance for your vehicle.
+      </p>
+    </div>
+
+    <!-- Service Card 2 -->
+    <div class="bg-gray-100 rounded-lg p-6 shadow hover:shadow-lg transition">
+      <div class="text-4xl mb-4">🛢</div>
+      <h3 class="font-semibold text-lg text-gray-800 mb-2">Expert Oil Changes</h3>
+      <p class="text-gray-600 text-sm">
+        Protect your engine with our professional oil change service—using premium oils and filters to keep your car running smoothly.
+      </p>
+    </div>
+
+    <!-- Service Card 3 -->
+    <div class="bg-gray-100 rounded-lg p-6 shadow hover:shadow-lg transition">
+      <div class="text-4xl mb-4">🔧</div>
+      <h3 class="font-semibold text-lg text-gray-800 mb-2">Top-Notch Maintenance</h3>
+      <p class="text-gray-600 text-sm">
+        From brakes to belts, we perform comprehensive maintenance that keeps your vehicle in top shape and road-ready at all times.
+      </p>
+    </div>
+
+    <!-- Service Card 4 -->
+    <div class="bg-gray-100 rounded-lg p-6 shadow hover:shadow-lg transition">
+      <div class="text-4xl mb-4">🔍</div>
+      <h3 class="font-semibold text-lg text-gray-800 mb-2">Precise Diagnosis</h3>
+      <p class="text-gray-600 text-sm">
+        Using advanced tools and skilled technicians, we accurately detect and resolve hidden issues before they become costly repairs.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ABOUT US SECTION ===================== -->
+<section id="about" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      
+      <!-- Section Header -->
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 uppercase">About Us</h2>
+      </div>
+  
+      <!-- Image + Content Side by Side -->
+      <div class="flex flex-col lg:flex-row items-start gap-10">
+        
+        <!-- Image -->
+        <div class="w-full lg:w-1/2">
+          <img 
+            src="img/Figure → image_01.jpg.png" 
+            alt="Picture of a car" 
+            class="w-full max-w-xl h-96 object-cover mx-auto rounded-lg shadow"
+          />
+        </div>
+  
+        <!-- Text + Vision & Mission -->
+        <div class="w-full lg:w-1/2 text-gray-700 space-y-6">
+          <!-- Paragraph -->
+          <div class="space-y-4">
+            <p>
+              At <strong>JOSTEVE AUTOMOTIVE</strong>, we believe every vehicle deserves expert care and genuine parts. 
+              Founded on a passion for precision and customer trust, we've built our reputation by delivering dependable 
+              automotive solutions that go beyond quick fixes. Whether it's a minor oil change or an in-depth diagnostic service, 
+              our skilled technicians ensure every job is done right the first time.
+            </p>
+            <p>
+              We specialise in providing authentic spare parts, reliable maintenance, and smart diagnostic services powered by modern tools 
+              and a commitment to excellence. Our mission is simple: to keep you moving safely, efficiently, and confidently—every mile of the way.
+            </p>
+          </div>
+  
+          <!-- Vision & Mission Cards (Stacked on small, side-by-side on medium+) -->
+          <div class="grid md:grid-cols-2 gap-6 pt-4">
+            <!-- Vision -->
+            <div class="bg-gray-100 rounded-lg p-4 shadow hover:shadow-md transition">
+              <h3 class="text-lg font-semibold mb-2 text-gray-800">OUR VISION</h3>
+              <p class="text-gray-600 text-sm">
+                To become the most trusted and innovative automotive service provider in the region, 
+                known for quality, reliability, and customer-centered solutions.
+              </p>
+            </div>
+  
+            <!-- Mission -->
+            <div class="bg-gray-100 rounded-lg p-4 shadow hover:shadow-md transition">
+              <h3 class="text-lg font-semibold mb-2 text-gray-800">OUR MISSION</h3>
+              <p class="text-gray-600 text-sm">
+                Our mission is to provide expert automotive care using genuine parts and smart diagnostics, 
+                with a focus on honesty, efficiency, and customer satisfaction.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<!-- ===================== CTA SECTION ===================== -->
+<section class="bg-gray-900 text-white px-4">
+    <div class="container mx-auto h-auto lg:h-[150px] flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-2 py-8 lg:py-0">
+      
+      <!-- CTA Text -->
+      <h2 class="text-center lg:text-left text-xl lg:text-2xl font-semibold">
+        READY FOR RELIABLE SERVICE? LET'S GET STARTED.
+      </h2>
+  
+      <!-- CTA Button -->
+      <a 
+        href="#book" 
+        class="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-md transition"
+      >
+        BOOK APPOINTMENT
+      </a>
+  
+    </div>
+</section>
+
+<!-- ===================== WHY CHOOSE US SECTION ===================== -->
+<section class="py-32 bg-fixed bg-center bg-cover text-white"
+         style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('img/why-choose-us.jpg');">
+  <div class="container mx-auto px-4">
+    
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 uppercase">
+      Why JOSTEVE Auto-Motive
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      
+      <!-- Card: Convenience -->
+      <div class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-xl shadow-md transition hover:bg-white/20 hover:-translate-y-1">
+        <div class="text-yellow-400 text-4xl mb-4">
+          <i class="fas fa-clock"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-4 text-white">Convenience</h3>
+        <p class="text-gray-200 text-sm">
+          We provide quality service and customer satisfaction at great value in multiple locations with flexible hours.
+        </p>
+      </div>
+
+      <!-- Card: Experienced Team -->
+      <div class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-xl shadow-md transition hover:bg-white/20 hover:-translate-y-1">
+        <div class="text-yellow-400 text-4xl mb-4">
+          <i class="fas fa-users"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-4 text-white">Experienced Team</h3>
+        <p class="text-gray-200 text-sm">
+          Our trained, skilled team is fully equipped with the tools and experience to deliver the best results.
+        </p>
+      </div>
+
+      <!-- Card: Organic Products -->
+      <div class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-xl shadow-md transition hover:bg-white/20 hover:-translate-y-1">
+        <div class="text-yellow-400 text-4xl mb-4">
+          <i class="fas fa-leaf"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-4 text-white">Organic Products</h3>
+        <p class="text-gray-200 text-sm">
+          Our eco-friendly and organic interior products save water and leave zero waste behind.
+        </p>
+      </div>
+
+      <!-- Card: Great Value -->
+      <div class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-xl shadow-md transition hover:bg-white/20 hover:-translate-y-1">
+        <div class="text-yellow-400 text-4xl mb-4">
+          <i class="fas fa-tag"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-4 text-white">Great Value</h3>
+        <p class="text-gray-200 text-sm">
+          We offer premium services at a great price — saving you time and money while exceeding expectations.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== OUR PRODUCTS (Responsive by Device) ===================== -->
+<section id="products" class="py-20 bg-white" x-data="productViewer">
+    <div class="container mx-auto px-4">
+  
+      <!-- Section Title -->
+      <h2 class="text-3xl font-bold text-center mb-12 uppercase text-gray-800">Our Products</h2>
+  
+      <!-- Mobile View: 2x2 Grid (4 items) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 md:hidden">
+        <template x-for="(product, index) in products.slice(0, 4)" :key="index">
+          <div class="bg-gray-100 rounded-lg shadow p-4 flex flex-col h-[420px]">
+            <img :src="product.img" :alt="product.name" class="w-full h-64 object-cover rounded-md mb-4">
+            <h3 class="text-lg font-semibold text-gray-800" x-text="product.name"></h3>
+            <p class="text-sm text-gray-600 mb-2" x-text="product.desc"></p>
+            <p class="text-red-600 font-semibold mt-auto" x-text="'TSh ' + product.price"></p>
+          </div>
+        </template>
+      </div>
+  
+      <!-- Tablet View: 3x2 Grid (6 items) -->
+      <div class="hidden md:grid lg:hidden grid-cols-2 md:grid-cols-3 gap-6">
+        <template x-for="(product, index) in products.slice(0, 6)" :key="index">
+          <div class="bg-gray-100 rounded-lg shadow p-4 flex flex-col h-[420px]">
+            <img :src="product.img" :alt="product.name" class="w-full h-64 object-cover rounded-md mb-4">
+            <h3 class="text-lg font-semibold text-gray-800" x-text="product.name"></h3>
+            <p class="text-sm text-gray-600 mb-2" x-text="product.desc"></p>
+            <p class="text-red-600 font-semibold mt-auto" x-text="'TSh ' + product.price"></p>
+          </div>
+        </template>
+      </div>
+  
+      <!-- Desktop View: 4x2 Grid (8 items) -->
+      <div class="hidden lg:grid grid-cols-4 gap-8">
+        <template x-for="(product, index) in products" :key="index">
+          <div class="bg-gray-100 rounded-lg shadow p-4 flex flex-col h-[420px]">
+            <img :src="product.img" :alt="product.name" class="w-full h-64 object-cover rounded-md mb-4">
+            <h3 class="text-lg font-semibold text-gray-800" x-text="product.name"></h3>
+            <p class="text-sm text-gray-600 mb-2" x-text="product.desc"></p>
+            <p class="text-red-600 font-semibold mt-auto" x-text="'TSh ' + product.price"></p>
+          </div>
+        </template>
+      </div>
+  
+      <!-- Browse More Button -->
+      <div class="text-center mt-12">
+        <a href="products.html" class="inline-block border border-red-600 text-red-600 font-semibold px-6 py-3 rounded-md hover:bg-red-600 hover:text-white transition">
+          Browse More Items
+        </a>
+      </div>
+  
+    </div>
+</section>
+  
+<!-- Alpine.js Script for the procuts -->
+<script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('productViewer', () => ({
+        products: [
+          { img: 'img/brake-pads.jpg', name: 'Brake Pads', desc: 'High-performance ceramic brake pads.', price: '85,000' },
+          { img: 'img/engine-oil.jpg', name: '5W-30 Engine Oil', desc: 'Premium synthetic oil.', price: '42,000' },
+          { img: 'img/socket-set.jpg', name: 'Socket Wrench Set', desc: '24-piece heavy-duty tool set.', price: '120,000' },
+          { img: 'img/car-mat.jpg', name: 'Rubber Floor Mats', desc: 'Set of 4 waterproof mats.', price: '65,000' },
+          { img: 'img/spark-plug.jpg', name: 'Spark Plugs', desc: 'Iridium spark plugs for efficiency.', price: '35,000' },
+          { img: 'img/battery.jpg', name: 'Car Battery', desc: '12V sealed maintenance-free battery.', price: '140,000' },
+          { img: 'img/air-filter.jpg', name: 'Air Filter', desc: 'OEM quality air filter for engines.', price: '25,000' },
+          { img: 'img/car-shampoo.jpg', name: 'Car Shampoo', desc: 'Eco-friendly cleaning solution.', price: '18,000' }
+        ]
+      }));
+    });
+</script>
+
+<!-- ===================== NEWSLETTER / INQUIRY CTA ===================== -->
+<section class="bg-gradient-to-br bg-gray-900 to-red-400 text-white py-12 px-6" id="newsletter">
+    <div class="max-w-4xl mx-auto text-center">
+     <h2 class="text-3xl md:text-4xl font-bold uppercase mb-4">Stay Connected</h2>
+      <p class="text-white/90 max-w-xl mx-auto mb-8">
+        Join our newsletter for exclusive auto care tips, special offers, and updates from JOSTEVE Automotive. Have a question? We’d love to hear from you!
+      </p>      
+      <form action="https://formspree.io/f/mzzrwngq" method="POST" class="max-w-xl mx-auto grid grid-cols-1 sm:grid-cols-[2fr_1fr] gap-4">
+        <input
+          type="email"
+          name="email"
+          placeholder="Enter your email"
+          class="p-3 rounded-lg text-gray-800 focus:outline-none w-full"
+          required
+        />
+        <button
+          type="submit"
+          class="bg-white text-red-600 font-bold rounded-lg p-3 hover:bg-gray-100 transition"
+        >
+          Subscribe
+        </button>
+      </form>
+    </div>
+  </section>
+  
+    
+  
+  
+
+<script defer src="app.js"></script>
 </body>
 </html>

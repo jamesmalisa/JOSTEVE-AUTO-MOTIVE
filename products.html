@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Products - JOSTEVE Automotive</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-white shadow p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <!-- Logo -->
+      <div class="leading-tight">
+        <div class="font-bold text-lg">JOSTEVE</div>
+        <div class="text-red-600 font-bold -mt-1">AUTO</div>
+        <div class="text-gray-500 font-semibold -mt-1">MOTIVE</div>
+      </div>
+      <a href="index.html" class="text-sm text-red-600 hover:underline">← Back to Home</a>
+    </div>
+  </header>
+
+  <!-- Product Page Section -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+
+      <!-- Section Title -->
+      <h1 class="text-3xl font-bold mb-6 text-center uppercase">All Products</h1>
+
+      <!-- Category Buttons (future filter) -->
+      <div class="flex flex-wrap justify-center gap-4 mb-12">
+        <button class="px-5 py-2 border border-red-600 text-red-600 rounded hover:bg-red-600 hover:text-white transition">All</button>
+        <button class="px-5 py-2 border border-gray-400 text-gray-700 rounded hover:bg-gray-700 hover:text-white transition">Spare Parts</button>
+        <button class="px-5 py-2 border border-gray-400 text-gray-700 rounded hover:bg-gray-700 hover:text-white transition">Oils & Fluids</button>
+        <button class="px-5 py-2 border border-gray-400 text-gray-700 rounded hover:bg-gray-700 hover:text-white transition">Tools</button>
+        <button class="px-5 py-2 border border-gray-400 text-gray-700 rounded hover:bg-gray-700 hover:text-white transition">Accessories</button>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+
+        <!-- Sample Card - Spare Part -->
+        <div class="bg-white rounded-lg shadow p-4 flex flex-col h-[420px]">
+          <img src="img/brake-pads.jpg" alt="Brake Pads" class="w-full h-64 object-cover rounded-md mb-4">
+          <h3 class="text-lg font-semibold">Brake Pads</h3>
+          <p class="text-sm text-gray-600 mb-2">High-performance ceramic brake pads.</p>
+          <p class="text-red-600 font-semibold mt-auto">TSh 85,000</p>
+        </div>
+
+        <!-- Sample Card - Oil -->
+        <div class="bg-white rounded-lg shadow p-4 flex flex-col h-[420px]">
+          <img src="img/engine-oil.jpg" alt="Engine Oil" class="w-full h-64 object-cover rounded-md mb-4">
+          <h3 class="text-lg font-semibold">5W-30 Engine Oil</h3>
+          <p class="text-sm text-gray-600 mb-2">Synthetic engine oil for optimal engine protection.</p>
+          <p class="text-red-600 font-semibold mt-auto">TSh 42,000</p>
+        </div>
+
+        <!-- Sample Card - Tool -->
+        <div class="bg-white rounded-lg shadow p-4 flex flex-col h-[420px]">
+          <img src="img/socket-set.jpg" alt="Socket Set" class="w-full h-64 object-cover rounded-md mb-4">
+          <h3 class="text-lg font-semibold">Socket Wrench Set</h3>
+          <p class="text-sm text-gray-600 mb-2">24-piece chrome vanadium tool set.</p>
+          <p class="text-red-600 font-semibold mt-auto">TSh 120,000</p>
+        </div>
+
+        <!-- Sample Card - Accessory -->
+        <div class="bg-white rounded-lg shadow p-4 flex flex-col h-[420px]">
+          <img src="img/car-mat.jpg" alt="Car Mat" class="w-full h-64 object-cover rounded-md mb-4">
+          <h3 class="text-lg font-semibold">Rubber Floor Mats</h3>
+          <p class="text-sm text-gray-600 mb-2">Waterproof, easy-to-clean car mats (set of 4).</p>
+          <p class="text-red-600 font-semibold mt-auto">TSh 65,000</p>
+        </div>
+
+        <!-- You can continue adding more cards here... -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white text-center text-sm text-gray-500 py-6">
+    &copy; 2025 JOSTEVE Automotive. All rights reserved.
+  </footer>
+
+</body>
+</html>
