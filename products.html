@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>All Products - JOSTEVE Automotive</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-gray-100 text-gray-800" x-data="products">
 
   <!-- Header -->
   <header class="bg-white shadow p-4">
@@ -17,7 +19,7 @@
         <div class="text-red-600 font-bold -mt-1">AUTO</div>
         <div class="text-gray-500 font-semibold -mt-1">MOTIVE</div>
       </div>
-      <a href="index.html" class="text-sm text-red-600 hover:underline">← Back to Home</a>
+      <a href="index.html" class="text-sm text-red-600 hover:underline">&larr; Back to Home</a>
     </div>
   </header>
 
@@ -28,60 +30,116 @@
       <!-- Section Title -->
       <h1 class="text-3xl font-bold mb-6 text-center uppercase">All Products</h1>
 
-      <!-- Category Buttons (future filter) -->
+      <!-- Filtering Buttons -->
       <div class="flex flex-wrap justify-center gap-4 mb-12">
-        <button class="px-5 py-2 border border-red-600 text-red-600 rounded hover:bg-red-600 hover:text-white transition">All</button>
-        <button class="px-5 py-2 border border-gray-400 text-gray-700 rounded hover:bg-gray-700 hover:text-white transition">Spare Parts</button>
-        <button class="px-5 py-2 border border-gray-400 text-gray-700 rounded hover:bg-gray-700 hover:text-white transition">Oils & Fluids</button>
-        <button class="px-5 py-2 border border-gray-400 text-gray-700 rounded hover:bg-gray-700 hover:text-white transition">Tools</button>
-        <button class="px-5 py-2 border border-gray-400 text-gray-700 rounded hover:bg-gray-700 hover:text-white transition">Accessories</button>
+        <button @click="selectedCategory = 'all'" class="px-5 py-2 border border-red-600 text-red-600 rounded hover:bg-red-600 hover:text-white transition">All</button>
+        <button @click="selectedCategory = 'spare'" class="px-5 py-2 border border-gray-400 text-gray-700 rounded hover:bg-gray-700 hover:text-white transition">Spare Parts</button>
+        <button @click="selectedCategory = 'oil'" class="px-5 py-2 border border-gray-400 text-gray-700 rounded hover:bg-gray-700 hover:text-white transition">Oils & Fluids</button>
+        <button @click="selectedCategory = 'tools'" class="px-5 py-2 border border-gray-400 text-gray-700 rounded hover:bg-gray-700 hover:text-white transition">Tools</button>
+        <button @click="selectedCategory = 'accessory'" class="px-5 py-2 border border-gray-400 text-gray-700 rounded hover:bg-gray-700 hover:text-white transition">Accessories</button>
       </div>
 
       <!-- Products Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-
-        <!-- Sample Card - Spare Part -->
-        <div class="bg-white rounded-lg shadow p-4 flex flex-col h-[420px]">
-          <img src="img/brake-pads.jpg" alt="Brake Pads" class="w-full h-64 object-cover rounded-md mb-4">
-          <h3 class="text-lg font-semibold">Brake Pads</h3>
-          <p class="text-sm text-gray-600 mb-2">High-performance ceramic brake pads.</p>
-          <p class="text-red-600 font-semibold mt-auto">TSh 85,000</p>
-        </div>
-
-        <!-- Sample Card - Oil -->
-        <div class="bg-white rounded-lg shadow p-4 flex flex-col h-[420px]">
-          <img src="img/engine-oil.jpg" alt="Engine Oil" class="w-full h-64 object-cover rounded-md mb-4">
-          <h3 class="text-lg font-semibold">5W-30 Engine Oil</h3>
-          <p class="text-sm text-gray-600 mb-2">Synthetic engine oil for optimal engine protection.</p>
-          <p class="text-red-600 font-semibold mt-auto">TSh 42,000</p>
-        </div>
-
-        <!-- Sample Card - Tool -->
-        <div class="bg-white rounded-lg shadow p-4 flex flex-col h-[420px]">
-          <img src="img/socket-set.jpg" alt="Socket Set" class="w-full h-64 object-cover rounded-md mb-4">
-          <h3 class="text-lg font-semibold">Socket Wrench Set</h3>
-          <p class="text-sm text-gray-600 mb-2">24-piece chrome vanadium tool set.</p>
-          <p class="text-red-600 font-semibold mt-auto">TSh 120,000</p>
-        </div>
-
-        <!-- Sample Card - Accessory -->
-        <div class="bg-white rounded-lg shadow p-4 flex flex-col h-[420px]">
-          <img src="img/car-mat.jpg" alt="Car Mat" class="w-full h-64 object-cover rounded-md mb-4">
-          <h3 class="text-lg font-semibold">Rubber Floor Mats</h3>
-          <p class="text-sm text-gray-600 mb-2">Waterproof, easy-to-clean car mats (set of 4).</p>
-          <p class="text-red-600 font-semibold mt-auto">TSh 65,000</p>
-        </div>
-
-        <!-- You can continue adding more cards here... -->
-
+        <template x-for="product in products" :key="product.name">
+          <div 
+            x-show="selectedCategory === 'all' || product.category === selectedCategory" 
+            class="bg-white rounded-lg shadow p-4 flex flex-col h-[420px]"
+          >
+            <img :src="product.img" :alt="product.name" class="w-full h-64 object-cover rounded-md mb-4">
+            <h3 class="text-lg font-semibold text-gray-800" x-text="product.name"></h3>
+            <p class="text-sm text-gray-600 mb-2" x-text="product.desc"></p>
+            <p class="text-red-600 font-semibold mt-auto" x-text="'TSh ' + product.price"></p>
+          </div>
+        </template>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-white text-center text-sm text-gray-500 py-6">
-    &copy; 2025 JOSTEVE Automotive. All rights reserved.
+  <footer class="bg-gray-900 text-white pt-12 pb-20 relative">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div>
+          <div class="mb-4 leading-tight">
+            <div class="font-bold text-lg">JOSTEVE</div>
+            <div class="text-red-600 font-bold -mt-1">AUTO</div>
+            <div class="text-gray-400 font-semibold -mt-1">MOTIVE</div>
+          </div>
+          <p class="text-gray-400 text-sm mb-6">
+            Expert automotive care with genuine parts and precision service. Your vehicle's best friend.
+          </p>
+          <div class="flex space-x-4 mt-4">
+            <a href="#" class="text-gray-400 hover:text-white text-lg"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white text-lg"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white text-lg"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="index.html" class="hover:text-red-600 transition">Home</a></li>
+            <li><a href="#services" class="hover:text-red-600 transition">Services</a></li>
+            <li><a href="products.html" class="hover:text-red-600 transition">Products</a></li>
+            <li><a href="#about" class="hover:text-red-600 transition">About Us</a></li>
+            <li><a href="#contact" class="hover:text-red-600 transition">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Our Services</h3>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="#services" class="hover:text-red-600 transition">Genuine Spare Parts</a></li>
+            <li><a href="#services" class="hover:text-red-600 transition">Expert Oil Changes</a></li>
+            <li><a href="#services" class="hover:text-red-600 transition">Vehicle Maintenance</a></li>
+            <li><a href="#services" class="hover:text-red-600 transition">Diagnostic Services</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li>123 Auto Ave, Dar es Salaam</li>
+            <li>+255 123 456 789</li>
+            <li>info@josteveauto.com</li>
+            <li>Mon–Sat: 8AM – 6PM</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
+        <p>&copy; 2025 JOSTEVE AUTOMOTIVE. All rights reserved.</p>
+        <div class="flex space-x-4 mt-4 md:mt-0">
+          <a href="#" class="hover:text-red-600 transition">Privacy Policy</a>
+          <a href="#" class="hover:text-red-600 transition">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+    <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" class="fixed bottom-6 right-6 bg-red-600 text-white p-3 rounded-full shadow-lg hover:bg-red-700 transition" title="Back to Top">
+      <i class="fas fa-chevron-up"></i>
+    </button>
   </footer>
+
+  <!-- Alpine.js Product Data -->
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('products', () => ({
+        selectedCategory: 'all',
+        products: [
+          { category: 'spare', img: 'img/Products /brake pad.jpg', name: 'Brake Pads', desc: 'High-performance ceramic brake pads.', price: '85,000'  },
+          { category: 'oil', img: 'img/products /oil.jpeg', name: '5W-30 Engine Oil', desc: 'Synthetic engine oil.', price: '42,000' },
+          { category: 'tools', img: 'img/products /Socket Wrench Set.jpeg', name: 'Socket Wrench Set', desc: '24-piece tool set.', price: '120,000' },
+          { category: 'accessory', img: 'img/products /Rubber Floor Mats.jpeg', name: 'Rubber Floor Mats', desc: 'Waterproof set of 4.', price: '65,000' },
+          { category: 'spare', img: 'img/products /Spark Plugs.jpeg', name: 'Spark Plugs', desc: 'Iridium plugs.', price: '35,000' },
+          { category: 'spare', img: 'img/products /Air Filter.jpeg', name: 'Air Filter', desc: 'OEM quality filter.', price: '25,000' },
+          { category: 'oil', img: 'img/products /Car Shampoo.jpeg', name: 'Car Shampoo', desc: 'Eco-friendly cleaning.', price: '18,000' },
+          { category: 'accessory', img: 'img/products/seat-cover.jpg', name: 'Seat Covers', desc: 'Durable leather covers.', price: '150,000' },
+          { category: 'tools', img: 'img/products /Tire Pressure Gauge.jpeg', name: 'Tire Pressure Gauge', desc: 'Digital gauge for accurate readings.', price: '15,000' },
+          { category: 'oil', img: 'img/products /Brake Fluid.jpeg', name: 'Brake Fluid', desc: 'DOT 4 brake fluid.', price: '10,000' },
+          { category: 'spare', img: 'img/products /Fuel Filter.jpeg', name: 'Fuel Filter', desc: 'High-efficiency filter.', price: '30,000' },
+          { category: 'accessory', img: 'img/products /Car Cover.jpeg', name: 'Car Cover', desc: 'Waterproof and UV resistant.', price: '80,000' },
+          { category: 'tools', img: 'img/products /Torque Wrench.jpeg', name: 'Torque Wrench', desc: 'Adjustable torque wrench.', price: '55,000' }
+        ]
+      }));
+    });
+  </script>
 
 </body>
 </html>

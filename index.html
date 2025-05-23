@@ -7,9 +7,11 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <script src="https://unpkg.com/@heroicons/vue@2.0.18/24/outline"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
 
 </head>
-<body class="bg-gray-200">
+<body class="bg-gray-200 pt-20">
 
   <!-- Header -->
   <header class="bg-white border-b border-gray-300 px-6 py-4 fixed top-0 w-full z-50" x-data="{ open: false }">
@@ -27,6 +29,8 @@
         <a href="#services" class="hover:text-red-600">SERVICES</a>
         <a href="products.html" class="hover:text-red-600">PRODUCTS</a>
         <a href="#" class="hover:text-red-600">ABOUT</a>
+        <a href="admin.html" class="hover:text-red-600 text-sm">ADMIN</a>
+
       </nav>
   
       <!-- Quote Button (always visible on desktop) -->
@@ -57,85 +61,87 @@
   </header>
   
 
-  <!-- Hero Section -->
+  <!-- ===================== HERO SECTION ===================== -->
 <section 
-  class="h-[80vh] bg-gray-300 flex flex-col justify-center items-center text-center px-4 mt-16"
-  x-data="{
-    titles: [
-      'CARE FOR YOUR CAR, CONFIDENCE FOR YOUR JOURNEY.',
-      'SMART AUTO SOLUTIONS. POWERED BY PRECISION.',
-      'PRECISION AUTO CARE. GENUINE PARTS. TRUSTED SERVICE.'
-    ],
-    index: 0,
-    init() {
-      setInterval(() => {
-        this.index = (this.index + 1) % this.titles.length;
-      }, 10000);
-    }
-  }"
-  >
-  <h2 class="text-sm tracking-wide text-gray-700 mb-4 uppercase">Welcome to Josteve Auto Motive</h2>
-  
-  <!-- Swapping Headline -->
-  <h1 x-text="titles[index]" class="text-4xl md:text-5xl font-bold leading-tight text-black mb-6 transition-all duration-500 ease-in-out"></h1>
-  
-  <p class="text-base text-gray-800 mb-8">MAMBO IPO HUKU!</p>
+class="h-[75vh] bg-cover bg-center relative flex flex-col justify-center items-center text-center text-white px-4"
+style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/hero.jpg');"
+x-data="{
+  titles: [
+    'CARE FOR YOUR CAR, CONFIDENCE FOR YOUR JOURNEY.',
+    'SMART AUTO SOLUTIONS. POWERED BY PRECISION.',
+    'PRECISION AUTO CARE. GENUINE PARTS. TRUSTED SERVICE.'
+  ],
+  index: 0,
+  init() {
+    setInterval(() => {
+      this.index = (this.index + 1) % this.titles.length;
+    }, 5000);
+  }
+}"
+>
+<h2 class="text-sm tracking-wide uppercase mb-4">Welcome to Josteve Auto Motive</h2>
 
-  <!-- CTA Buttons -->
-  <div class="flex flex-col sm:flex-row gap-4">
-    <a href="#book" class="bg-red-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-red-700 transition">
-      Book Appointment
-    </a>
-    <a href="#services" class="border border-black text-black px-6 py-3 rounded-md font-semibold hover:bg-black hover:text-white transition">
-      Browse Services
-    </a>
-  </div>
+<!-- Animated Headline -->
+<h1 x-text="titles[index]" class="text-4xl md:text-5xl font-bold leading-tight mb-6 transition-all duration-500 ease-in-out"></h1>
+
+<p class="text-base text-white/80 mb-8">Mambo ipo huku!</p>
+
+<!-- CTA Buttons -->
+<div class="flex flex-col sm:flex-row gap-4">
+  <a href="#book" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-md font-semibold transition">
+    Book Appointment
+  </a>
+  <a href="#services" class="border border-white text-white px-6 py-3 rounded-md font-semibold hover:bg-white hover:text-black transition">
+    Browse Services
+  </a>
+</div>
 </section>
 
+
 <!-- ===================== OUR SERVICES SECTION ===================== -->
-<section id="services" class="py-20 bg-white text-center px-6">
-  <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4 uppercase">Our Services</h2>
-  <p class="text-gray-600 mb-12 max-w-xl mx-auto">
-    At JOSTEVE AUTOMOTIVE, we offer expert automotive care with genuine parts and precision service. Here’s what we do best.
-  </p>
-
-  <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-    <!-- Service Card 1 -->
-    <div class="bg-gray-100 rounded-lg p-6 shadow hover:shadow-lg transition">
-      <div class="text-4xl mb-4">🛠</div>
-      <h3 class="font-semibold text-lg text-gray-800 mb-2">Genuine Spare Parts</h3>
-      <p class="text-gray-600 text-sm">
-        We supply only original, manufacturer-approved parts to ensure perfect compatibility, reliability, and performance for your vehicle.
+<section id="services" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-8">OUR SERVICES</h2>
+      <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">
+        At JOSTEVE AUTOMOTIVE, we offer expert automotive care with genuine parts and precision service. Here’s what we do best.
       </p>
+  
+      <!-- Grid of services -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- each service card here -->
+         <!-- Service Card 1 -->
+        <div class="bg-gray-100 rounded-lg p-6 shadow hover:shadow-lg transition">
+          <div class="text-4xl mb-4">🛠</div>
+          <h3 class="font-semibold text-lg text-gray-800 mb-2">Genuine Spare Parts</h3>
+          <p class="text-gray-600 text-sm">
+            We supply only original, manufacturer-approved parts to ensure perfect compatibility, reliability, and performance for your vehicle.
+          </p>
+      </div>
+        <!-- Service Card 2 -->
+        <div class="bg-gray-100 rounded-lg p-6 shadow hover:shadow-lg transition">
+          <div class="text-4xl mb-4">🛢</div>
+          <h3 class="font-semibold text-lg text-gray-800 mb-2">Expert Oil Changes</h3>
+          <p class="text-gray-600 text-sm">
+            Protect your engine with our professional oil change service—using premium oils and filters to keep your car running smoothly.
+          </p>
+        </div>
+        <!-- Service Card 3 -->
+        <div class="bg-gray-100 rounded-lg p-6 shadow hover:shadow-lg transition">
+          <div class="text-4xl mb-4">🔧</div>
+          <h3 class="font-semibold text-lg text-gray-800 mb-2">Top-Notch Maintenance</h3>
+          <p class="text-gray-600 text-sm">
+            From brakes to belts, we perform comprehensive maintenance that keeps your vehicle in top shape and road-ready at all times.
+          </p>
+        </div>
+        <!-- Service Card 4 -->
+        <div class="bg-gray-100 rounded-lg p-6 shadow hover:shadow-lg transition">
+          <div class="text-4xl mb-4">🔍</div>
+          <h3 class="font-semibold text-lg text-gray-800 mb-2">Precise Diagnosis</h3>
+          <p class="text-gray-600 text-sm">
+            Using advanced tools and skilled technicians, we accurately detect and resolve hidden issues before they become costly repairs.
+          </p>
+        </div>
     </div>
-
-    <!-- Service Card 2 -->
-    <div class="bg-gray-100 rounded-lg p-6 shadow hover:shadow-lg transition">
-      <div class="text-4xl mb-4">🛢</div>
-      <h3 class="font-semibold text-lg text-gray-800 mb-2">Expert Oil Changes</h3>
-      <p class="text-gray-600 text-sm">
-        Protect your engine with our professional oil change service—using premium oils and filters to keep your car running smoothly.
-      </p>
-    </div>
-
-    <!-- Service Card 3 -->
-    <div class="bg-gray-100 rounded-lg p-6 shadow hover:shadow-lg transition">
-      <div class="text-4xl mb-4">🔧</div>
-      <h3 class="font-semibold text-lg text-gray-800 mb-2">Top-Notch Maintenance</h3>
-      <p class="text-gray-600 text-sm">
-        From brakes to belts, we perform comprehensive maintenance that keeps your vehicle in top shape and road-ready at all times.
-      </p>
-    </div>
-
-    <!-- Service Card 4 -->
-    <div class="bg-gray-100 rounded-lg p-6 shadow hover:shadow-lg transition">
-      <div class="text-4xl mb-4">🔍</div>
-      <h3 class="font-semibold text-lg text-gray-800 mb-2">Precise Diagnosis</h3>
-      <p class="text-gray-600 text-sm">
-        Using advanced tools and skilled technicians, we accurately detect and resolve hidden issues before they become costly repairs.
-      </p>
-    </div>
-  </div>
 </section>
 
 <!-- ===================== ABOUT US SECTION ===================== -->
@@ -153,7 +159,7 @@
         <!-- Image -->
         <div class="w-full lg:w-1/2">
           <img 
-            src="img/Figure → image_01.jpg.png" 
+            src="img/about.jpg" 
             alt="Picture of a car" 
             class="w-full max-w-xl h-96 object-cover mx-auto rounded-lg shadow"
           />
@@ -337,14 +343,14 @@
     document.addEventListener('alpine:init', () => {
       Alpine.data('productViewer', () => ({
         products: [
-          { img: 'img/brake-pads.jpg', name: 'Brake Pads', desc: 'High-performance ceramic brake pads.', price: '85,000' },
-          { img: 'img/engine-oil.jpg', name: '5W-30 Engine Oil', desc: 'Premium synthetic oil.', price: '42,000' },
-          { img: 'img/socket-set.jpg', name: 'Socket Wrench Set', desc: '24-piece heavy-duty tool set.', price: '120,000' },
-          { img: 'img/car-mat.jpg', name: 'Rubber Floor Mats', desc: 'Set of 4 waterproof mats.', price: '65,000' },
-          { img: 'img/spark-plug.jpg', name: 'Spark Plugs', desc: 'Iridium spark plugs for efficiency.', price: '35,000' },
-          { img: 'img/battery.jpg', name: 'Car Battery', desc: '12V sealed maintenance-free battery.', price: '140,000' },
-          { img: 'img/air-filter.jpg', name: 'Air Filter', desc: 'OEM quality air filter for engines.', price: '25,000' },
-          { img: 'img/car-shampoo.jpg', name: 'Car Shampoo', desc: 'Eco-friendly cleaning solution.', price: '18,000' }
+          { img: 'img/Products /brake pad.jpg', name: 'Brake Pads', desc: 'High-performance ceramic brake pads.', price: '85,000' },
+          { img: 'img/Products /oil.jpeg', name: '5W-30 Engine Oil', desc: 'Premium synthetic oil.', price: '42,000' },
+          { img: 'img/Products /Socket Wrench Set.jpeg', name: 'Socket Wrench Set', desc: '24-piece heavy-duty tool set.', price: '120,000' },
+          { img: 'img/Products /Rubber Floor Mats.jpeg', name: 'Rubber Floor Mats', desc: 'Set of 4 waterproof mats.', price: '65,000' },
+          { img: 'img/Products /Spark Plugs.jpeg', name: 'Spark Plugs', desc: 'Iridium spark plugs for efficiency.', price: '35,000' },
+          { img: 'img/Products /Car Battery.jpeg', name: 'Car Battery', desc: '12V sealed maintenance-free battery.', price: '140,000' },
+          { img: 'img/Products /Air Filter.jpeg', name: 'Air Filter', desc: 'OEM quality air filter for engines.', price: '25,000' },
+          { img: 'img/Products /Car Shampoo.jpeg', name: 'Car Shampoo', desc: 'Eco-friendly cleaning solution.', price: '18,000' }
         ]
       }));
     });
@@ -375,7 +381,84 @@
     </div>
   </section>
   
-    
+<!-- ===================== FOOTER SECTION ===================== -->
+<footer class="bg-gray-900 text-white pt-12 pb-20 relative">
+    <div class="container mx-auto px-6">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Logo & About -->
+        <div>
+          <div class="mb-4 leading-tight">
+            <div class="font-bold text-lg">JOSTEVE</div>
+            <div class="text-red-600 font-bold -mt-1">AUTO</div>
+            <div class="text-gray-400 font-semibold -mt-1">MOTIVE</div>
+          </div>
+          <p class="text-gray-400 text-sm mb-6">
+            Expert automotive care with genuine parts and precision service. Your vehicle's best friend.
+          </p>
+          <!-- Social Media Icons -->
+          <div class="flex space-x-4 mt-4">
+            <a href="#" class="text-gray-400 hover:text-white text-lg"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white text-lg"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white text-lg"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+  
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="index.html" class="hover:text-red-600 transition">Home</a></li>
+            <li><a href="#services" class="hover:text-red-600 transition">Services</a></li>
+            <li><a href="products.html" class="hover:text-red-600 transition">Products</a></li>
+            <li><a href="#about" class="hover:text-red-600 transition">About Us</a></li>
+            <li><a href="#contact" class="hover:text-red-600 transition">Contact</a></li>
+          </ul>
+        </div>
+  
+        <!-- Services -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Our Services</h3>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="#services" class="hover:text-red-600 transition">Genuine Spare Parts</a></li>
+            <li><a href="#services" class="hover:text-red-600 transition">Expert Oil Changes</a></li>
+            <li><a href="#services" class="hover:text-red-600 transition">Vehicle Maintenance</a></li>
+            <li><a href="#services" class="hover:text-red-600 transition">Diagnostic Services</a></li>
+          </ul>
+        </div>
+  
+        <!-- Contact Info -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li>123 Auto Ave, Dar es Salaam</li>
+            <li>+255 123 456 789</li>
+            <li>info@josteveauto.com</li>
+            <li>Mon–Sat: 8AM – 6PM</li>
+          </ul>
+        </div>
+      </div>
+  
+      <!-- Bottom Bar -->
+      <div class="border-t border-gray-800 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
+        <p>&copy; 2025 JOSTEVE AUTOMOTIVE. All rights reserved.</p>
+        <div class="flex space-x-4 mt-4 md:mt-0">
+          <a href="#" class="hover:text-red-600 transition">Privacy Policy</a>
+          <a href="#" class="hover:text-red-600 transition">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Back to Top Button -->
+    <button 
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' });"
+      class="fixed bottom-6 right-6 bg-red-600 text-white p-3 rounded-full shadow-lg hover:bg-red-700 transition"
+      title="Back to Top"
+    >
+      <i class="fas fa-chevron-up"></i>
+    </button>
+  </footer>
+  
   
   
 
