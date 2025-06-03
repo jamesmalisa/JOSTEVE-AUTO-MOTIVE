@@ -8,10 +8,31 @@
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <script src="https://unpkg.com/@heroicons/vue@2.0.18/24/outline"></script>
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      animation: fadeIn 0.5s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-section {
+      opacity: 0;
+      transform: translateY(100px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+    .fade-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+  
 
 </head>
-<body class="bg-gray-200 pt-20">
+<body class="bg-gray-100 text-gray-800 pt-20">
 
   <!-- Header -->
   <header class="bg-white border-b border-gray-300 px-6 py-4 fixed top-0 w-full z-50" x-data="{ open: false }">
@@ -63,7 +84,7 @@
 
   <!-- ===================== HERO SECTION ===================== -->
 <section 
-class="h-[75vh] bg-cover bg-center relative flex flex-col justify-center items-center text-center text-white px-4"
+class="h-[75vh] bg-cover bg-center bg-fixed relative flex flex-col justify-center items-center text-center text-white px-4"
 style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/hero.jpg');"
 x-data="{
   titles: [
@@ -82,13 +103,13 @@ x-data="{
 <h2 class="text-sm tracking-wide uppercase mb-4">Welcome to Josteve Auto Motive</h2>
 
 <!-- Animated Headline -->
-<h1 x-text="titles[index]" class="text-4xl md:text-5xl font-bold leading-tight mb-6 transition-all duration-500 ease-in-out"></h1>
+<h1 x-text="titles[index]" class="text-4xl md:text-5xl font-bold leading-tight mb-6 transition-all duration-500 ease-in-out x-transition.opacity"></h1>
 
 <p class="text-base text-white/80 mb-8">Mambo ipo huku!</p>
 
 <!-- CTA Buttons -->
 <div class="flex flex-col sm:flex-row gap-4">
-  <a href="#book" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-md font-semibold transition">
+  <a href="book.html" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-md font-semibold transition">
     Book Appointment
   </a>
   <a href="#services" class="border border-white text-white px-6 py-3 rounded-md font-semibold hover:bg-white hover:text-black transition">
@@ -99,7 +120,10 @@ x-data="{
 
 
 <!-- ===================== OUR SERVICES SECTION ===================== -->
-<section id="services" class="py-20 bg-white">
+<section id="services" class="py-20 bg-white fade-section"
+         x-data="{ visible: false }"
+         x-intersect:once="visible = true"
+         :class="{ 'visible': visible }">
     <div class="container mx-auto px-4">
       <h2 class="text-2xl md:text-3xl font-bold text-center mb-8">OUR SERVICES</h2>
       <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">
@@ -145,7 +169,10 @@ x-data="{
 </section>
 
 <!-- ===================== ABOUT US SECTION ===================== -->
-<section id="about" class="py-20 bg-white">
+<section id="about" class="py-20 bg-white fade-section"
+         x-data="{ visible: false }"
+         x-intersect:once="visible = true"
+         :class="{ 'visible': visible }">
     <div class="container mx-auto px-4">
       
       <!-- Section Header -->
@@ -207,7 +234,10 @@ x-data="{
 </section>
 
 <!-- ===================== CTA SECTION ===================== -->
-<section class="bg-gray-900 text-white px-4">
+<section class="bg-gray-900 text-white px-4 fade-section"
+         x-data="{ visible: false }"
+         x-intersect:once="visible = true"
+         :class="{ 'visible': visible }">
     <div class="container mx-auto h-auto lg:h-[150px] flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-2 py-8 lg:py-0">
       
       <!-- CTA Text -->
@@ -217,17 +247,20 @@ x-data="{
   
       <!-- CTA Button -->
       <a 
-        href="#book" 
+        href="book.html" 
         class="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-md transition"
       >
-        BOOK APPOINTMENT
+        Book Appointment
       </a>
   
     </div>
 </section>
 
 <!-- ===================== WHY CHOOSE US SECTION ===================== -->
-<section class="py-32 bg-fixed bg-center bg-cover text-white"
+<section class="py-32 bg-fixed bg-center bg-cover text-white fade-section"
+         x-data="{ visible: false }"
+         x-intersect:once="visible = true"
+         :class="{ 'visible': visible }"
          style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('img/why-choose-us.jpg');">
   <div class="container mx-auto px-4">
     
@@ -286,7 +319,7 @@ x-data="{
 </section>
 
 <!-- ===================== OUR PRODUCTS (Responsive by Device) ===================== -->
-<section id="products" class="py-20 bg-white" x-data="productViewer">
+<section id="products" class="py-20 bg-white fade-section " x-data="productViewer">
     <div class="container mx-auto px-4">
   
       <!-- Section Title -->
@@ -357,7 +390,7 @@ x-data="{
 </script>
 
 <!-- ===================== NEWSLETTER / INQUIRY CTA ===================== -->
-<section class="bg-gradient-to-br bg-gray-900 to-red-400 text-white py-12 px-6" id="newsletter">
+<section class="bg-gradient-to-br bg-gray-900 to-red-400 text-white py-12 px-6 fade-section" id="newsletter">
     <div class="max-w-4xl mx-auto text-center">
      <h2 class="text-3xl md:text-4xl font-bold uppercase mb-4">Stay Connected</h2>
       <p class="text-white/90 max-w-xl mx-auto mb-8">
@@ -382,7 +415,10 @@ x-data="{
   </section>
   
 <!-- ===================== FOOTER SECTION ===================== -->
-<footer class="bg-gray-900 text-white pt-12 pb-20 relative">
+<footer class="bg-gray-900 text-white pt-12 pb-20 relative fade-section"
+         x-data="{ visible: false }"
+         x-intersect:once="visible = true"
+         :class="{ 'visible': visible }">
     <div class="container mx-auto px-6">
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -457,9 +493,26 @@ x-data="{
     >
       <i class="fas fa-chevron-up"></i>
     </button>
-  </footer>
+</footer>
   
-  
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+
+      document.querySelectorAll('.fade-section').forEach(section => {
+        observer.observe(section);
+      });
+    });
+  </script>  
   
 
 <script defer src="app.js"></script>

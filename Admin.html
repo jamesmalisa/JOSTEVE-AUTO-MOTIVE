@@ -7,7 +7,54 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
-<body class="bg-gray-100 text-gray-800 p-6" x-data="productAdmin()">
+<body class="bg-gray-100 text-gray-800 pt-32" x-data="productAdmin()">
+   
+    <!-- Header -->
+  <header class="bg-white border-b border-gray-300 px-6 py-4 fixed top-0 w-full z-50" x-data="{ open: false }">
+    <div class="flex items-center justify-between">
+      <!-- Logo -->
+      <div class="leading-tight">
+        <div class="font-bold text-lg">JOSTEVE</div>
+        <div class="text-red-600 font-bold -mt-1">AUTO</div>
+        <div class="text-gray-500 font-semibold -mt-1">MOTIVE</div>
+      </div>
+  
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex gap-14 text-sm font-medium">
+        <a href="index.html" class="hover:text-red-600">HOME</a>
+        <a href="#services" class="hover:text-red-600">SERVICES</a>
+        <a href="products.html" class="hover:text-red-600">PRODUCTS</a>
+        <a href="#" class="hover:text-red-600">ABOUT</a>
+        <a href="admin.html" class="hover:text-red-600 text-sm">ADMIN</a>
+
+      </nav>
+  
+      <!-- Quote Button (always visible on desktop) -->
+      <div class="hidden md:block">
+        <a href="#" class="border border-black px-5 py-2 rounded-md font-semibold text-sm hover:bg-black hover:text-white transition">
+          GET QUOTE →
+        </a>
+      </div>
+  
+      <!-- Hamburger Menu Button (Mobile) -->
+      <button class="md:hidden text-3xl focus:outline-none" @click="open = !open">
+        ☰
+      </button>
+    </div>
+  
+    <!-- Mobile Menu -->
+    <div x-show="open" x-transition class="mt-4 md:hidden">
+      <nav class="flex flex-col gap-4 text-sm font-medium">
+        <a href="#" class="hover:text-red-600">HOME</a>
+        <a href="#services" class="hover:text-red-600">SERVICES</a>
+        <a href="#" class="hover:text-red-600">PRODUCTS</a>
+        <a href="#" class="hover:text-red-600">ABOUT</a>
+        <a href="#" class="border border-black px-4 py-2 text-center rounded-md font-semibold text-sm hover:bg-black hover:text-white transition">
+          GET QUOTE →
+        </a>
+      </nav>
+    </div>
+  </header>
 
   <div class="max-w-3xl mx-auto">
     <h1 class="text-3xl font-bold mb-6 text-center">Add New Product</h1>
